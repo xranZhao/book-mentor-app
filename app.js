@@ -155,7 +155,7 @@ const App = {
       this.switchTab("chat");
       // 如果对话为空，显示欢迎消息
       if (this.currentChat.length === 0) {
-        this.addMessage("assistant", `你好，我是《${book.title}》的作者 ${book.author} 的视角。\n\n我的核心主张是：**${book.thesis}**\n\n你可以直接告诉我你正在经历的事，我会用这本书的框架帮你分析。`);
+        this.addMessage("assistant", "告诉我你正在经历的事，我会用这本书的框架帮你分析。");
       }
     }
   },
