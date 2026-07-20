@@ -1,0 +1,24 @@
+{
+  "name": "Book Mentor · 书本智慧顾问",
+  "short_name": "Book Mentor",
+  "description": "13本心理学/亲密关系/自我成长书籍的应用框架——选一本书，用它的视角分析你的生活困惑",
+  "start_url": "/book-mentor-app/index.html",
+  "display": "standalone",
+  "background_color": "#faf8f5",
+  "theme_color": "#8b5a2b",
+  "orientation": "portrait",
+  "icons": [
+    {
+      "src": "icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ]
+}

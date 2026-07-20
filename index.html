@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <meta name="theme-color" content="#1a1a2e">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <title>Book Mentor · 书本智慧顾问</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="manifest" href="manifest.json">
+  <link rel="apple-touch-icon" href="icon-192.png">
+  <link rel="stylesheet" href="style.css">
+  <script>
+    (function () {
+      function setVh() {
+        document.documentElement.style.setProperty('--vh', (window.innerHeight * 0.01) + 'px');
+      }
+      setVh();
+      window.addEventListener('resize', setVh);
+      window.addEventListener('orientationchange', function () {
+        setTimeout(setVh, 100);
+      });
+    })();
+  </script>
+</head>
+<body>
+  <div id="app">
+    <!-- 顶部栏 -->
+    <header class="app-header">
+      <div class="header-title" id="header-title">📚 Book Mentor</div>
+      <button id="header-back-btn" class="header-back-btn" style="display:none;">← 书库</button>
+    </header>
+
+    <!-- ===== 书库 Tab ===== -->
+    <div id="tab-library" class="tab-content active">
+      <!-- 搜索框 -->
+      <div class="search-bar">
+        <input type="text" id="search-input" placeholder="搜索书名、作者、标签..." autocomplete="off">
+      </div>
+      <!-- 热门标签 -->
+      <div class="tag-filter-bar" id="tag-filter-bar">
+        <span class="tag-filter-chip active" data-tag="全部">全部</span>
+      </div>
+      <!-- 书库列表 -->
+      <div id="book-list" class="book-list"></div>
+    </div>
+
+    <!-- ===== 对话 Tab (选书后) ===== -->
+    <div id="tab-chat" class="tab-content">
+      <!-- 书封信息条 -->
+      <div id="book-info-bar" class="book-info-bar"></div>
+      <!-- 快捷问题 -->
+      <div id="quick-questions" class="quick-questions"></div>
+      <!-- 对话区 -->
+      <div id="chat-messages" class="chat-messages"></div>
+      <div id="chat-loading" class="chat-loading" style="display: none;">
+        <span class="dot"></span><span class="dot"></span><span class="dot"></span>
+      </div>
+      <!-- 输入区 -->
+      <div class="chat-input-area">
+        <textarea id="chat-input" placeholder="向这本书提问……" rows="1"></textarea>
+        <button id="send-btn" class="send-btn">发送</button>
+      </div>
+    </div>
+
+    <!-- ===== 设置 Tab ===== -->
+    <div id="tab-settings" class="tab-content">
+      <div class="settings-card">
+        <h3>🔑 API 设置</h3>
+        <p class="settings-help">粘贴 DeepSeek API Key 即可使用。Key 只保存在你手机本地。</p>
+        <div class="form-group">
+          <label>API Key</label>
+          <input type="password" id="setting-api-key" placeholder="sk-..." autocomplete="off">
+        </div>
+        <div class="form-group">
+          <label>API 地址（一般不用改）</label>
+          <input type="text" id="setting-base-url" placeholder="https://api.deepseek.com/v1/chat/completions">
+        </div>
+        <div class="form-group">
+          <label>模型</label>
+          <input type="text" id="setting-model" placeholder="deepseek-chat">
+        </div>
+        <button id="save-settings-btn" class="btn-primary">💾 保存设置</button>
+        <p id="settings-status" style="margin-top:8px;font-size:12px;color:var(--text-light);"></p>
+      </div>
+      <div class="settings-card">
+        <h3>📖 关于 Book Mentor</h3>
+        <p class="settings-help">知识库包含 13 本心理学/自我成长/亲密关系书籍的应用框架。选择一本书，用它的视角来分析你的生活困惑。</p>
+        <p class="settings-help">框架提取自完整章节逐字稿，由 AI 辅助提炼核心命题、关键概念、分析模型和行动原则。</p>
+      </div>
+    </div>
+
+    <!-- 底部导航 -->
+    <nav class="tab-bar">
+      <button id="nav-library" class="tab-btn active">
+        <span class="tab-icon">📚</span>
+        <span class="tab-label">书库</span>
+      </button>
+      <button id="nav-chat" class="tab-btn">
+        <span class="tab-icon">💬</span>
+        <span class="tab-label">对话</span>
+      </button>
+      <button id="nav-settings" class="tab-btn">
+        <span class="tab-icon">⚙️</span>
+        <span class="tab-label">设置</span>
+      </button>
+    </nav>
+  </div>
+
+  <script src="data/books.js"></script>
+  <script src="config.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
