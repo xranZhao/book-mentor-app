@@ -176,7 +176,7 @@ const App = {
       div.className = `message ${msg.role}`;
       const avatar = document.createElement("div");
       avatar.className = "avatar";
-      avatar.textContent = msg.role === "user" ? "我" : "📖";
+      avatar.textContent = msg.role === "user" ? "你" : "📖";
       const bubble = document.createElement("div");
       bubble.className = "bubble";
       bubble.innerHTML = this.markdownToHtml(msg.content);
